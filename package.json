@@ -5,11 +5,11 @@
 ,   "author":       "Robin Berjon <robin@berjon.com>"
 ,   "dependencies": {
         "jsdom":    "= 0.2.10"
-,   }
+    }
 ,   "devDependencies": {
         "mocha":    "*"
     ,   "should":    "*"
-,   }
+    }
 ,   "repository":   "git://github.com/darobin/html-sanitiser"
 ,   "main":         "index"
 }
