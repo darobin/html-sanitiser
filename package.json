@@ -4,7 +4,7 @@
 ,   "version":      "0.0.3"
 ,   "author":       "Robin Berjon <robin@berjon.com>"
 ,   "dependencies": {
-        "jsdom":    "= 0.2.10"
+        "jsdom":    "~0.8"
     }
 ,   "devDependencies": {
         "mocha":    "*"

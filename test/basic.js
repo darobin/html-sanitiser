@@ -45,11 +45,11 @@ describe("HTML", function () {
     describe("style attribute", function () {
         it("should remove forbidden properties", function () {
             san.sanitiseHTML('<p style="background: #fff; behavior: something"></p>')
-               .should.equal('<p style="background: #fff;"></p>');
+               .should.equal('<p style="background: #fff; "></p>');
         });
         it("should remove url()", function () {
             san.sanitiseHTML('<p style="background: url(http://berjon.com/) #fff;"></p>')
-               .should.equal('<p style="background: #fff;"></p>');
+               .should.equal('<p style="background: #fff; "></p>');
         });
         it("should remove unknown keywords", function () {
             san.sanitiseHTML('<p style="background: whatever;"></p>')
@@ -57,19 +57,19 @@ describe("HTML", function () {
         });
         it("should support !important", function () {
             san.sanitiseHTML('<p style="display: none !important;"></p>')
-               .should.equal('<p style="display: none !important;"></p>');
+               .should.equal('<p style="display: none !important; "></p>');
         });
         it("should respec allowedProperties", function () {
             san.sanitiseHTML('<p style="display: none; behavior: something"></p>', { allowedProperties: ["behavior"]})
-               .should.equal('<p style="behavior: something;"></p>');
+               .should.equal('<p style="behavior: something; "></p>');
         });
         it("should respec allowedKeywords", function () {
             san.sanitiseHTML('<p style="background: red;"></p><p style="background: foo;"></p>', { allowedKeywords: ["foo"]})
-               .should.equal('<p style=""></p><p style="background: foo;"></p>');
+               .should.equal('<p style=""></p><p style="background: foo; "></p>');
         });
         it("should respec shorthandProperties", function () {
             san.sanitiseHTML('<p style="foo-bar: red;"></p><p style="background: foo;"></p>', { shorthandProperties: ["foo"]})
-               .should.equal('<p style="foo-bar: red;"></p><p style=""></p>');
+               .should.equal('<p style="foo-bar: red; "></p><p style=""></p>');
         });
     });
 });
